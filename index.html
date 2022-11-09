@@ -6,7 +6,60 @@
 </head>
 <body>
 <script>
-  
+    /**
+     *
+     * @param {string} name
+     * @param {number} age
+     * @constructor
+     */
+    function Human(name, age) {
+        this.name = name;
+        this.age = age;
+        this.ownerCar = [];
+        this.getInfoHuman = function () {
+            console.log(this.name, this.age);
+        }
+
+    }
+
+    const vika = new Human('Vika', 38);
+    vika.getInfoHuman();
+    const artem = new Human('Artem', 13);
+
+    /**
+     *
+     * @param {string} brand
+     * @param {string | number} model
+     * @param {number} yearsOfcar
+     * @param {string | number} numberPlate
+     * @param {Human} ownerCar
+     * @constructor
+     */
+    function Car(brand, model, yearsOfcar, numberPlate) {
+        this. brand = brand;
+        this.model = model;
+        this. yearsOfCar = yearsOfcar;
+        this.numberPlate = numberPlate;
+        this.owner = [];
+
+        this.setOwnerCar = function (human) {
+            if (human.age >= 18) {
+                this.owner.push(human);
+                human.ownerCar.push(this);
+            } else alert("Владение возможно при достижении 18 лет");
+        }
+         this.getInfoCar = function () {
+            console.log('Car - ', this.brand, this.model, this.yearsOfCar, this.numberPlate );
+         }
+
+    }
+const mazda = new Car('mazda', 3, 2019, 'AA7807PT');
+mazda.setOwnerCar(artem);
+
+
+
+
+
 </script>
 </body>
 </html>
