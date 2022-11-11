@@ -10,6 +10,7 @@
      *
      * @param {string} name
      * @param {number} age
+     * @param {Car[]} ownerCar
      * @constructor
      */
     function Human(name, age) {
@@ -25,6 +26,8 @@
     const vika = new Human('Vika', 38);
     vika.getInfoHuman();
     const artem = new Human('Artem', 13);
+    artem.getInfoHuman();
+    const nika = new Human('Nika', 25);
 
     /**
      *
@@ -32,7 +35,7 @@
      * @param {string | number} model
      * @param {number} yearsOfcar
      * @param {string | number} numberPlate
-     * @param {Human} ownerCar
+     * @param {Human[]} owner
      * @constructor
      */
     function Car(brand, model, yearsOfcar, numberPlate) {
@@ -50,11 +53,18 @@
         }
          this.getInfoCar = function () {
             console.log('Car - ', this.brand, this.model, this.yearsOfCar, this.numberPlate );
+            this.owner.forEach((item) => {
+                item.getInfoHuman();
+            })
          }
+
 
     }
 const mazda = new Car('mazda', 3, 2019, 'AA7807PT');
 mazda.setOwnerCar(artem);
+mazda.getInfoCar();
+mazda.setOwnerCar(vika);
+
 
 
 
